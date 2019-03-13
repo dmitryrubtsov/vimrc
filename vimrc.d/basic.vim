@@ -123,9 +123,11 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme onehalflight
+    colorscheme PaperColor 
 catch
 endtry
+
+set background=light
 
 " Set extra options when running in GUI mode
 if has("gui_running")

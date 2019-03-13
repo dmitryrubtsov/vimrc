@@ -20,8 +20,7 @@
 "                                                                              "
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-let $VIMHOME='~/.vim'
-source $VIMHOME/vimrc.d/basic.vim
-" source $VIMHOME/vimrc.d/filetypes.vim
-" source $VIMHOME/vimrc.d/plugins_config.vim
-" source $VIMHOME/vimrc.d/extended.vim
+source ~/.vim/vimrc.d/basic.vim
+source ~/.vim/vimrc.d/filetypes.vim
+source ~/.vim/vimrc.d/plugins_config.vim
+source ~/.vim/vimrc.d/extended.vim
