@@ -10,19 +10,30 @@ endif
 
 call plug#begin()
 
-Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
-Plug 'ryanoasis/vim-devicons'
-Plug 'w0rp/ale', { 'for': 'python' }
-
 " --> Code/Project navigation
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'corntrace/bufexplorer' " Switch between buffers by using the one of the default public interfaces
+Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }, " Fuzzy file, buffer, mru, tag, etc finder
+Plug 'majutsushi/tagbar', { 'for': 'python' } " Vim plugin that displays tags in a window
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " A tree explorer plugin
+
 " --> Colorschemes
-Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors/*.vim ~/.vim/colors/' }
+Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors/*.vim ~/.vim/colors/' } " Light & Dark Vim color schemes inspired by Google's Material Design
+
+" --> Languages support
+Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+
+" --> Other
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
+Plug 'itchyny/lightline.vim' " A light and configurable statusline/tabline
+Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
+Plug 'maxbrunsfeld/vim-yankstack' " A lightweight implementation of emacs's kill-ring
+Plug 'maximbaz/lightline-ale' " ALE indicator for the lightline
+Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugins
+Plug 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections
 
 " --> Python
-Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'hdima/python-syntax', { 'for': 'python' } " Python syntax highlighting script
+Plug 'nvie/vim-flake8', { 'for': 'python' } " Flake8 plugin
 
 call plug#end()
 
@@ -45,31 +56,10 @@ nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
 
 """"""""""""""""""""""""""""""
-" => CTRL-P
+" => ctrlp.vim 
 """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
-
-let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
-map <c-b> :CtrlPBuffer<cr>
-
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
-
-
-""""""""""""""""""""""""""""""
-" => ZenCoding
-""""""""""""""""""""""""""""""
-" Enable all functions in all modes
-let g:user_zen_mode='a'
-
-
-""""""""""""""""""""""""""""""
-" => snipMate (beside <TAB> support <CTRL-j>)
-""""""""""""""""""""""""""""""
-ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
-
 
 """"""""""""""""""""""""""""""
 " => Vim grep
@@ -104,13 +94,6 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => surround.vim config
-" Annotate strings with gettext 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vmap Si S(i_<esc>f)
-au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -134,20 +117,6 @@ let g:lightline = {
       \ 'separator': { 'left': ' ', 'right': ' ' },
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vimroom
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:goyo_width=100
-let g:goyo_margin_top = 2
-let g:goyo_margin_bottom = 2
-nnoremap <silent> <leader>z :Goyo<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim-go
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_fmt_command = "goimports"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
