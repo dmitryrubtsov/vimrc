@@ -12,7 +12,7 @@ call plug#begin()
 
 " --> Code/Project navigation
 Plug 'corntrace/bufexplorer' " Switch between buffers by using the one of the default public interfaces
-Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }, " Fuzzy file, buffer, mru, tag, etc finder
+Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer']}, " Fuzzy file, buffer, mru, tag, etc finder
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Vim plugin that displays tags in a window
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " A tree explorer plugin
 
@@ -21,7 +21,7 @@ Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors
 
 " --> Languages support
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'for': 'python' } " A code-completion engine
-Plug 'scrooloose/syntastic' " Syntax checking hacks
+Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
@@ -57,6 +57,12 @@ nmap <c-n> <Plug>yankstack_substitute_newer_paste
 """"""""""""""""""""""""""""""
 " => ctrlp.vim 
 """"""""""""""""""""""""""""""
+let g:ctrlp_working_path_mode = 0
+
+let g:ctrlp_map = '<c-f>'
+map <leader>j :CtrlP<cr>
+map <c-b> :CtrlPBuffer<cr>
+
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
@@ -95,11 +101,28 @@ let g:lightline = {
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [ 'keymap' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component': {
-      \   'keymap': '%{&iminsert == 0 ? "EN" : "RU"}'
-      \ },
+      \              [ 'fileformat', 'fileencoding', 'filetype' ],
+      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ]
+      \ }
+      \ }
+
+
+let g:lightline.component = {
+      \  'keymap': '%{&iminsert == 0 ? "EN" : "RU"}',
+      \ }
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
       \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -116,20 +139,13 @@ let g:tagbar_width = 30
 let g:tagbar_autofocus = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => syntastic
+" => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <buffer> <F7> :SyntasticCheck<cr>
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
 
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_aggregate_errors=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_python_checkers=['flake8', 'pylint', 'python']
+nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YouCompleteMe
