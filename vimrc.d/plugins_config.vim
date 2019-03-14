@@ -24,16 +24,18 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'for': 'python' } " A cod
 Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
-Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
+"Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
 Plug 'itchyny/lightline.vim' " A light and configurable statusline/tabline
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'maxbrunsfeld/vim-yankstack' " A lightweight implementation of emacs's kill-ring
 Plug 'maximbaz/lightline-ale' " ALE indicator for the lightline
 Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugins
 Plug 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections
+Plug 'tpope/vim-fugitive', " A Git wrapper so awesome
 
 " --> Python
 Plug 'hdima/python-syntax', { 'for': 'python' } " Python syntax highlighting script
+Plug 'nvie/vim-flake8', { 'for': 'python' } " Flake8 plugin
 
 call plug#end()
 
