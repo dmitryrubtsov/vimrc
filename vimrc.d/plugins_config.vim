@@ -24,7 +24,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'for': 'python' } " A cod
 Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
-"Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
 Plug 'itchyny/lightline.vim' " A light and configurable statusline/tabline
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'maxbrunsfeld/vim-yankstack' " A lightweight implementation of emacs's kill-ring
@@ -43,7 +43,7 @@ call plug#end()
 " => bufexplorer plugin
 """"""""""""""""""""""""""""""
 let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
+t g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
