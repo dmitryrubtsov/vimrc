@@ -147,6 +147,8 @@ let g:tagbar_autofocus = 1
 let g:ale_linters = {
 \   'python': ['flake8'],
 \}
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
 
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
