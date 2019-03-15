@@ -22,8 +22,8 @@ Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors
 
 " --> Languages support
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'for': 'python' } " A code-completion engine
-Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 Plug 'tmhedberg/simpylfold', { 'for': 'python' } " Python code folding
+Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
@@ -152,6 +152,7 @@ let g:ale_linters = {
 let b:ale_fixers = ['autopep8', 'yapf']
 
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
+nmap <silent> <S-F7> :ALEFix<cr>
 
 " Disabling highlighting
 let g:ale_set_highlights = 0
