@@ -4,7 +4,7 @@
 let python_highlight_all = 1
 
 " Code running
-au FileType python nnoremap <buffer> <F5> :w<cr>:exec '!python' shellescape(@%, 1)<cr>
+au FileType python nnoremap <buffer> <F5> <Esc>:w<CR>:terminal python "%"<CR> 
 " Show line numbers
 au FileType python set number
 
