@@ -110,7 +110,6 @@ let g:lightline = {
       \ }
       \ }
 
-
 let g:lightline.component = {
       \  'keymap': '%{&iminsert == 0 ? "EN" : "RU"}',
       \ }
