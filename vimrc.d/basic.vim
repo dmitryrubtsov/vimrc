@@ -26,11 +26,7 @@
 set autoread
 
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
-
-" Fast saving
-nmap <leader>w :w!<cr>
 
 " Use system clipboard
 set clipboard=unnamedplus
@@ -44,23 +40,11 @@ set scrolloff=10
 " Turn on the Wild menu
 set wildmenu
 
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-endif
-
 "Always show current position
 set ruler
 
 " A buffer becomes hidden when it is abandoned
 set hidden
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
 
 " Ignore case when searching
 set ignorecase
@@ -93,7 +77,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
 
 " Add a bit extra margin to the left
 set foldcolumn=1
@@ -174,12 +157,6 @@ map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
-
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
