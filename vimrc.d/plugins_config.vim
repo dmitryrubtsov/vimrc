@@ -21,7 +21,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " A tree explorer plugin
 Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors/*.vim ~/.vim/colors/' } " Light & Dark Vim color schemes inspired by Google's Material Design
 
 " --> Languages support
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py', 'for': 'python' } " A code-completion engine
+Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Using the jedi autocompletion library
 Plug 'tmhedberg/simpylfold', { 'for': 'python' } " Python code folding
 Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
@@ -59,7 +59,7 @@ nmap <c-p> <Plug>yankstack_substitute_older_paste
 nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
 """"""""""""""""""""""""""""""
-" => ctrlp.vim 
+" => ctrlp.vim
 """"""""""""""""""""""""""""""
 let g:ctrlp_working_path_mode = 0
 
@@ -162,17 +162,12 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set completeopt-=preview
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => DevIcon Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" loading the plugin 
+" loading the plugin
 let g:webdevicons_enable = 1
 
-" adding the flags to NERDTree 
+" adding the flags to NERDTree
 let g:webdevicons_enable_nerdtree = 1
 
 " adding to vim-airline's tabline
@@ -184,18 +179,18 @@ let g:webdevicons_enable_airline_statusline = 1
 " turn on/off file node glyph decorations (not particularly useful)
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 
-" use double-width(1) or single-width(0) glyphs 
+" use double-width(1) or single-width(0) glyphs
 " only manipulates padding, has no effect on terminal or set(guifont) font
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
-" whether or not to show the nerdtree brackets around flags 
+" whether or not to show the nerdtree brackets around flags
 let g:webdevicons_conceal_nerdtree_brackets = 0
 
 " the amount of space to use after the glyph character (default ' ')
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 " Force extra padding in NERDTree so that the filetype icons line up vertically
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1 
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 " change the default character when no match found
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
@@ -216,3 +211,8 @@ let g:DevIconsEnableFolderPatternMatching = 1
 " enable file extension pattern matching glyphs on folder/directory (disabled by default with 0)
 let g:DevIconsEnableFolderExtensionPatternMatching = 0
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => DevIcon jedi-vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jedi#show_call_signatures = 1 " Show call signatures
+let g:jedi#popup_on_dot = 1         " Enable autocomplete on dot
