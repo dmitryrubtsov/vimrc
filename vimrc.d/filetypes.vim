@@ -5,6 +5,7 @@ let python_highlight_all = 1
 
 " Code running
 au FileType python nnoremap <buffer> <F5> <Esc>:w !python<cr>
+au FileType python nnoremap <buffer> <S-F5> :!python %<cr>
 " Show line numbers
 au FileType python set number
 
