@@ -40,6 +40,9 @@ set scrolloff=10
 " Turn on the Wild menu
 set wildmenu
 
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+
 "Always show current position
 set ruler
 
