@@ -35,6 +35,10 @@ Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugi
 Plug 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections
 Plug 'tpope/vim-fugitive', " A Git wrapper so awesome
 
+" --> Markdown 
+Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignment
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
+
 " --> Python
 Plug 'hdima/python-syntax', { 'for': 'python' } " Python syntax highlighting script
 Plug 'nvie/vim-flake8', { 'for': 'python' } " Flake8 plugin
@@ -214,5 +218,13 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => DevIcon jedi-vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#show_call_signatures = 1 " Show call signatures
-let g:jedi#popup_on_dot = 1         " Enable autocomplete on dot
+" Show call signatures
+let g:jedi#show_call_signatures = 1
+" Enable autocomplete on dot
+let g:jedi#popup_on_dot = 1         
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => markdown-syntax
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable Folding
+let g:vim_markdown_folding_disabled = 1
