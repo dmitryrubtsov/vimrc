@@ -1,3 +1,21 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Sections:
+
+" => Plugins
+" => bufexplorer plugin
+" => ctrlp.vim
+" => tagbar
+" => nerdtree
+" => jedi-vim
+" => Syntastic (syntax checker)
+" => vim-gitgutter (Git gutter)
+" => lightline
+" => vim-yankstack
+" => DevIcon Settings
+" => vim-multiple-cursors
+" => markdown-syntax
+
 """"""""""""""""""""""""""""""
 " => Plugins
 """"""""""""""""""""""""""""""
@@ -55,14 +73,6 @@ let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
 
 """"""""""""""""""""""""""""""
-" => vim-yankstack
-""""""""""""""""""""""""""""""
-let g:yankstack_yank_keys = ['y', 'd']
-
-nmap <c-p> <Plug>yankstack_substitute_older_paste
-nmap <c-n> <Plug>yankstack_substitute_newer_paste
-
-""""""""""""""""""""""""""""""
 " => ctrlp.vim
 """"""""""""""""""""""""""""""
 let g:ctrlp_working_path_mode = 0
@@ -73,6 +83,13 @@ map <c-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_width = 30
+let g:tagbar_autofocus = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdtree
@@ -86,19 +103,37 @@ map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-multiple-cursors
+" => jedi-vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_use_default_mapping=0
+" Show call signatures
+let g:jedi#show_call_signatures = 1
+" Enable autocomplete on dot
+let g:jedi#popup_on_dot = 1         
 
-" Default mapping
-let g:multi_cursor_start_word_key      = '<C-s>'
-let g:multi_cursor_select_all_word_key = '<A-s>'
-let g:multi_cursor_start_key           = 'g<C-s>'
-let g:multi_cursor_select_all_key      = 'g<A-s>'
-let g:multi_cursor_next_key            = '<C-s>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Syntastic (syntax checker)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+
+nmap <silent> <leader>a <Plug>(ale_next_wrap)
+nmap <silent> <S-F7> :ALEFix<cr>
+
+" Disabling highlighting
+let g:ale_set_highlights = 0
+
+" Only run linting when saving the file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-gitgutter (Git gutter)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_enabled=0
+nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
@@ -133,37 +168,13 @@ let g:lightline.component_type = {
       \     'linter_ok': 'left',
       \ }
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-gitgutter (Git gutter)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gitgutter_enabled=0
-nnoremap <silent> <leader>d :GitGutterToggle<cr>
+""""""""""""""""""""""""""""""
+" => vim-yankstack
+""""""""""""""""""""""""""""""
+let g:yankstack_yank_keys = ['y', 'd']
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => tagbar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_width = 30
-let g:tagbar_autofocus = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Syntastic (syntax checker)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
-" Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['autopep8', 'yapf']
-
-nmap <silent> <leader>a <Plug>(ale_next_wrap)
-nmap <silent> <S-F7> :ALEFix<cr>
-
-" Disabling highlighting
-let g:ale_set_highlights = 0
-
-" Only run linting when saving the file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+nmap <c-p> <Plug>yankstack_substitute_older_paste
+nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => DevIcon Settings
@@ -196,13 +207,6 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 " Force extra padding in NERDTree so that the filetype icons line up vertically
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
-" change the default character when no match found
-let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
-
-" set a byte character marker (BOM) utf-8 symbol when retrieving file encoding
-" disabled by default with no value
-let g:WebDevIconsUnicodeByteOrderMarkerDefaultSymbol = ''
-
 " enable folder/directory glyph flag (disabled by default with 0)
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
@@ -216,12 +220,19 @@ let g:DevIconsEnableFolderPatternMatching = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => DevIcon jedi-vim
+" => vim-multiple-cursors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Show call signatures
-let g:jedi#show_call_signatures = 1
-" Enable autocomplete on dot
-let g:jedi#popup_on_dot = 1         
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-s>'
+let g:multi_cursor_select_all_word_key = '<A-s>'
+let g:multi_cursor_start_key           = 'g<C-s>'
+let g:multi_cursor_select_all_key      = 'g<A-s>'
+let g:multi_cursor_next_key            = '<C-s>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => markdown-syntax
