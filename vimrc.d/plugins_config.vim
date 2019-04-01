@@ -40,7 +40,7 @@ Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors
 
 " --> Languages support
 Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Using the jedi autocompletion library
-Plug 'tmhedberg/simpylfold', { 'for': 'python' } " Python code folding
+" Plug 'tmhedberg/simpylfold', { 'for': 'python' } " Python code folding
 Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
@@ -58,9 +58,7 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignme
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 
 " --> Python
-Plug 'hdima/python-syntax', { 'for': 'python' } " Python syntax highlighting script
-Plug 'nvie/vim-flake8', { 'for': 'python' } " Flake8 plugin
-
+Plug 'python-mode/python-mode', { 'branch': 'develop' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -114,14 +112,12 @@ let g:jedi#popup_on_dot = 1
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
-\   'python': ['flake8'],
+\   'python': ['flake8', 'pylint'],
 \}
 " Fix Python files with autopep8 and yapf.
 let b:ale_fixers = ['autopep8', 'yapf']
 
-nmap <silent> <leader>a <Plug>(ale_next_wrap)
-nmap <silent> <S-F7> :ALEFix<cr>
-
+nmap <silent> <F7> :ALELint<cr>
 " Disabling highlighting
 let g:ale_set_highlights = 0
 
@@ -148,7 +144,6 @@ let g:lightline = {
       \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ]
       \ }
       \ }
-
 let g:lightline.component = {
       \  'keymap': '%{&iminsert == 0 ? "EN" : "RU"}',
       \ }
@@ -167,7 +162,6 @@ let g:lightline.component_type = {
       \     'linter_errors': 'error',
       \     'linter_ok': 'left',
       \ }
-
 """"""""""""""""""""""""""""""
 " => vim-yankstack
 """"""""""""""""""""""""""""""
