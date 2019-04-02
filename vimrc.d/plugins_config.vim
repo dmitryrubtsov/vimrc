@@ -40,7 +40,6 @@ Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors
 
 " --> Languages support
 Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Using the jedi autocompletion library
-" Plug 'tmhedberg/simpylfold', { 'for': 'python' } " Python code folding
 Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
@@ -58,7 +57,7 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignme
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 
 " --> Python
-Plug 'python-mode/python-mode', { 'branch': 'develop' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
+Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
 call plug#end()
 
 """"""""""""""""""""""""""""""
