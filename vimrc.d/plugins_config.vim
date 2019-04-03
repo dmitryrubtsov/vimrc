@@ -52,7 +52,7 @@ Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugi
 Plug 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections
 Plug 'tpope/vim-fugitive', " A Git wrapper so awesome
 
-" --> Markdown 
+" --> Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignment
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 
@@ -87,6 +87,18 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_width = 30
 let g:tagbar_autofocus = 1
+let g:tagbar_type_vim  = {
+             \ 'ctagstype' : 'vim',
+             \ 'kinds'     : [
+             \ 'p:Project',
+             \ 'a:autocommand groups',
+             \ 'c:user-defined commands',
+             \ 'f:function definitions',
+             \ 'm:maps',
+             \ 'v:variable definitions',
+             \ 'n:vimball filename'
+             \ ]
+             \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdtree
@@ -105,7 +117,7 @@ map <leader>nf :NERDTreeFind<cr>
 " Show call signatures
 let g:jedi#show_call_signatures = 1
 " Enable autocomplete on dot
-let g:jedi#popup_on_dot = 1         
+let g:jedi#popup_on_dot = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic (syntax checker)
