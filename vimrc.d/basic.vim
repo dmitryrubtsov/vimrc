@@ -12,9 +12,9 @@
 " => Editing mappings
 " => Spell checking
 " => Misc
-" => Localization  
+" => Localization
 " => Helper functions
-   
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -95,7 +95,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme PaperColor 
+    colorscheme PaperColor
 catch
 endtry
 
@@ -179,7 +179,7 @@ map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap <leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Opens a new tab with the current buffer's path
@@ -246,7 +246,7 @@ map <leader>sa zs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Localization  
+" => Localization
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Russian keymaps
 set keymap=russian-jcukenwin
