@@ -99,7 +99,8 @@ try
 catch
 endtry
 
-set background=light
+" set background=light
+map <silent> <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Set extra options when running in GUI mode
 if has("gui_running")
