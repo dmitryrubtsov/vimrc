@@ -232,7 +232,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spell spelllang=ru_yo,en_us
 
-" Pressing ,ss will toggle and untoggle spell checking
+" Pressing <S-F7> will toggle and untoggle spell checking
 map <S-F7> :setlocal spell!<cr>
 
 " Shortcuts using <leader>
