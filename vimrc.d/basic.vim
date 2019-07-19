@@ -230,6 +230,8 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNew,BufRead  * set nospell
+
 set spell spelllang=ru_yo,en_us
 
 " Pressing <S-F7> will toggle and untoggle spell checking
