@@ -30,6 +30,8 @@ let mapleader = ","
 " Use system clipboard
 set clipboard=unnamedplus
 
+filetype plugin on
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

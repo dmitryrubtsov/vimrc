@@ -55,6 +55,7 @@ Plug 'tpope/vim-fugitive', " A Git wrapper so awesome
 " --> Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignment
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " --> Python
 Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
@@ -242,5 +243,11 @@ let g:multi_cursor_quit_key            = '<Esc>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => markdown-syntax
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable Folding
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-instant-markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:instant_markdown_mathjax = 1
