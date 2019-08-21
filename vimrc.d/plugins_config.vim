@@ -15,6 +15,7 @@
 " => DevIcon Settings
 " => vim-multiple-cursors
 " => markdown-syntax
+" => UltiSnips
 
 """"""""""""""""""""""""""""""
 " => Plugins
@@ -59,6 +60,11 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " --> Python
 Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
+
+" --> Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -249,5 +255,10 @@ let g:vim_markdown_math = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-instant-markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:instant_markdown_mathjax = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => UltiSnips
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit = 'vertical'

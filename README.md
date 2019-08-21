@@ -45,6 +45,13 @@ K                       Show documentation for current word (selection) (for pyt
 <leader> cd             Switch CWD to the directory of the open buffer
 <leader> o              Bufexplorer will bring up the selected buffer in the window (:BufExplorer)
 ```
+## Snippets 
+```
+<tab>                   Expand Trigger   
+<c-tab>                 List Snippets
+<c-j>                   Jump Forward Trigger
+<c-k>                   Jump Backward Trigger 
+```
 ## Other
 ```
 <c-b>                   :CtrlPBuffer
