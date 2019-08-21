@@ -105,7 +105,7 @@ endtry
 map <silent> <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Set extra options when running in GUI mode
-if has("gui_running")
+if has('gui_running')
     set guioptions-=T   " Disable the menubar
     set guioptions-=e
     set guioptions-=L   " Disable scrollbars
@@ -122,7 +122,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set gfn=Droid\ Sans\ Mono
+set gfn=DroidSansMono\ Nerd\ Font
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
