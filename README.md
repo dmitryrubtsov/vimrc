@@ -29,6 +29,7 @@ K                       Show documentation for current word (selection) (for pyt
 <leader> sa             Spell zs
 <leader> sn             Spell ]s
 <leader> sp             Spell [s
+<c-l>                   Previous spelling error corrected
 ```
 ## Moving around, tabs, windows and buffers
 ```
