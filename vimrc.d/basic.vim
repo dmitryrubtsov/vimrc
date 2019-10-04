@@ -32,6 +32,10 @@ set clipboard=unnamedplus
 
 filetype plugin on
 
+" Size of the Vim window.
+set columns=120
+set lines=40
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
