@@ -130,10 +130,10 @@ let g:jedi#popup_on_dot = 1
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
-\   'python': ['flake8', 'pylint'],
+\   'python': ['autopep8', 'flake8', 'pylint', 'yapf'],
 \}
 " Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['autopep8', 'yapf']
+let b:ale_fixers = ['autopep8', 'black', 'isort', 'yapf', 'remove_trailing_lines',  'trim_whitespace']
 
 nmap <silent> <F7> :ALELint<cr>
 " Disabling highlighting
