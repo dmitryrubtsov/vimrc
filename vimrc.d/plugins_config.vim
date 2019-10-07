@@ -60,6 +60,7 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " --> Python
 Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
+Plug 'plytophogy/vim-virtualenv' " Plugin for working with python virtualenvs 
 
 " --> Snippets
 Plug 'SirVer/ultisnips'
@@ -159,11 +160,13 @@ let g:lightline = {
       \              [ 'percent' ],
       \              [ 'keymap' ],
       \              [ 'gitbranch', 'fileformat', 'fileencoding', 'filetype' ],
-      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ]
+      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+      \              ['virtualenv']]
       \ }
       \ }
 let g:lightline.component = {
       \  'keymap': '%{&iminsert == 0 ? "EN" : "RU"}',
+      \  'virtualenv': '| %{virtualenv#statusline()} |'
       \ }
 
 let g:lightline.component_expand = {

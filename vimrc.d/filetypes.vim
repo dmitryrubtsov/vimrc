@@ -33,7 +33,7 @@ let g:pymode_doc_bind='K'
 let g:pymode_lint=0
  
 " virtualenv
-let g:pymode_virtualenv=1
+let g:pymode_virtualenv=0
 
 " breakpoints
 let g:pymode_breakpoint=1
