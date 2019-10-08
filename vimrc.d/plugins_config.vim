@@ -109,6 +109,10 @@ let g:tagbar_type_vim  = {
              \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => lightline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:virtualenv_stl_format = '| (%n) |'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeWinPos = "right"
@@ -156,33 +160,73 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 let g:lightline = {
       \ 'colorscheme': 'PaperColor',
       \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [ 'keymap' ],
       \              [ 'gitbranch', 'fileformat', 'fileencoding', 'filetype' ],
       \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
-      \              ['virtualenv']]
-      \ }
+      \              [ 'virtualenv' ]]
+      \ },
+      \   'component_function': {
+      \             'mode': 'LightlineMode',
+      \             'filename': 'LightlineFilename',
+      \ },
       \ }
 let g:lightline.component = {
-      \  'keymap': '%{&iminsert == 0 ? "EN" : "RU"}',
-      \  'virtualenv': '| %{virtualenv#statusline()} |'
+      \   'keymap': '%{&iminsert == 0 ? "EN" : "RU"}',
+      \   'virtualenv': '%{virtualenv#statusline()}'
       \ }
 
 let g:lightline.component_expand = {
-      \  'gitbranch': 'fugitive#head',
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \  'linter_warnings': 'lightline#ale#warnings',
+      \   'gitbranch': 'fugitive#head',
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_ok': 'lightline#ale#ok',
+      \   'linter_warnings': 'lightline#ale#warnings',
       \ }
 
 let g:lightline.component_type = {
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'left',
+      \   'linter_checking': 'left',
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \   'linter_ok': 'left',
       \ }
+
+function! LightlineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightlineFilename()
+  let fname = expand('%:t')
+  " let virtualenv = expand('%{virtualenv#statusline()}') " %{virtualenv#statusline()}
+  
+  return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
+        \ fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
 """"""""""""""""""""""""""""""
 " => vim-yankstack
 """"""""""""""""""""""""""""""
