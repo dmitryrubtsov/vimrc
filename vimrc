@@ -22,5 +22,5 @@
 
 source ~/.vim/vimrc.d/basic.vim
 source ~/.vim/vimrc.d/filetypes.vim
-source ~/.vim/vimrc.d/personal.vim
-source ~/.vim/vimrc.d/plugins_config.vim    "for personal info
+source ~/.vim/vimrc.d/personal.vim          "for personal info
+source ~/.vim/vimrc.d/plugins_config.vim 
