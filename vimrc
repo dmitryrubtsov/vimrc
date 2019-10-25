@@ -20,6 +20,10 @@
 "                                                                              "
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
+if empty(glob('~/.vim/vimrc.d/personal.vim'))
+  silent !touch ~/.vim/vimrc.d/personal.vim
+endif
+
 source ~/.vim/vimrc.d/basic.vim
 source ~/.vim/vimrc.d/filetypes.vim
 source ~/.vim/vimrc.d/personal.vim          "for personal info
