@@ -184,6 +184,12 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
+"Switch between different windows by their direction`
+no <C-j> <C-w>j "switching to below window 
+no <C-k> <C-w>k "switching to above window
+no <C-l> <C-w>l "switching to right window 
+no <C-h> <C-w>h "switching to left window
+
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
 nmap <leader>tl :exe "tabn ".g:lasttab<CR>
