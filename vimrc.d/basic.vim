@@ -98,9 +98,7 @@ set foldcolumn=1
 syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+set t_Co=256
 
 try
     colorscheme PaperColor
@@ -118,7 +116,6 @@ if has('gui_running')
     set guioptions-=l   " Disable scrollbars
     set guioptions-=R   " Disable scrollbars
     set guioptions-=r   " Disable scrollbars
-    set t_Co=256
     set guitablabel=%M\ %t
 endif
 
