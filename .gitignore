@@ -1,4 +1,5 @@
+.netrwhist
 autoload/
 colors/
-plugged/
 personal.vim
+plugged/
