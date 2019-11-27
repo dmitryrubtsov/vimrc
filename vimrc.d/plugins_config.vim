@@ -49,9 +49,11 @@ Plug 'itchyny/lightline.vim' " A light and configurable statusline/tabline
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'maxbrunsfeld/vim-yankstack' " A lightweight implementation of emacs's kill-ring
 Plug 'maximbaz/lightline-ale' " ALE indicator for the lightline
-Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugins
 Plug 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections
 Plug 'tpope/vim-fugitive', " A Git wrapper so awesome
+if has('gui_running')
+    Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugins
+endif
 
 " --> Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignment
