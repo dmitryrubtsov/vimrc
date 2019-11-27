@@ -312,3 +312,7 @@ let g:instant_markdown_mathjax = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsListSnippets = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'

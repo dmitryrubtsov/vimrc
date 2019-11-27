@@ -50,8 +50,8 @@ K                       Show documentation for current word (selection) (for pyt
 ```
 <tab>                   Expand Trigger   
 <c-tab>                 List Snippets
-<c-j>                   Jump Forward Trigger
-<c-k>                   Jump Backward Trigger 
+<tab>                   Jump Forward Trigger
+<s-tab>                   Jump Backward Trigger 
 ```
 ## Other
 ```
