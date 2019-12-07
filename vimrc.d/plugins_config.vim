@@ -54,7 +54,6 @@ Plug 'tpope/vim-fugitive', " A Git wrapper so awesome
 if has('gui_running')
     Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugins
 endif
-Plug 'jamessan/vim-gnupg' " gpg encrypted files
 
 " --> Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignment
