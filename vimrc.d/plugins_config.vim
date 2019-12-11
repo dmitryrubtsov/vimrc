@@ -16,6 +16,7 @@
 " => vim-multiple-cursors
 " => markdown-syntax
 " => UltiSnips
+" => YouCompleteMe
 
 """"""""""""""""""""""""""""""
 " => Plugins
@@ -40,20 +41,22 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " A tree explorer plugin
 Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors/*.vim ~/.vim/colors/' } " Light & Dark Vim color schemes inspired by Google's Material Design
 
 " --> Languages support
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } " A code-completion engine for Vim
 Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Using the jedi autocompletion library
 Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
+Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab 
 Plug 'itchyny/lightline.vim' " A light and configurable statusline/tabline
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'maxbrunsfeld/vim-yankstack' " A lightweight implementation of emacs's kill-ring
 Plug 'maximbaz/lightline-ale' " ALE indicator for the lightline
+if has('gui_running')
+Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugins
+endif
 Plug 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections
 Plug 'tpope/vim-fugitive', " A Git wrapper so awesome
-if has('gui_running')
-    Plug 'ryanoasis/vim-devicons' " Adds file type glyphs/icons to popular Vim plugins
-endif
 
 " --> Markdown
 Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignment
@@ -61,8 +64,8 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " --> Python
-Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
 Plug 'plytophogy/vim-virtualenv' " Plugin for working with python virtualenvs 
+Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
 
 " --> Snippets
 Plug 'SirVer/ultisnips'
@@ -316,3 +319,11 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsListSnippets = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteMe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
