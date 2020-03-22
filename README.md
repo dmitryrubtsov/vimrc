@@ -1,10 +1,12 @@
 # vimrc
 # Hotkeys
 ```
-<F5>                    Code running (for python)
+<F3>                    Display line numbers
+<F5>                    Code running
 <F7>                    Syntax checker (:ALELint)
 <S-F7>                  Switches on/off spell checking
 <F8>                    Tagbar (:TagbarToggle)
+<F9>                    Code compiler 
 <F12>                   Switch background to light/dark
 ```
 ## Editing mappings
