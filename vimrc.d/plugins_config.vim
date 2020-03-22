@@ -42,8 +42,7 @@ Plug 'NLKNguyen/papercolor-theme', { 'do': 'mkdir -p ~/.vim/colors; cp -f colors
 
 " --> Languages support
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } " A code-completion engine for Vim
-Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Using the jedi autocompletion library
-Plug 'w0rp/ale', { 'for': 'python' } " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+Plug 'w0rp/ale' " Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 
 " --> Other
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
@@ -129,13 +128,6 @@ map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => jedi-vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Show call signatures
-let g:jedi#show_call_signatures = 1
-" Enable autocomplete on dot
-let g:jedi#popup_on_dot = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic (syntax checker)
@@ -144,7 +136,10 @@ let g:ale_linters = {
 \   'python': ['autopep8', 'flake8', 'pylint', 'yapf'],
 \}
 " Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['autopep8', 'black', 'isort', 'yapf', 'remove_trailing_lines',  'trim_whitespace']
+let b:ale_fixers = {
+\   'python': ['autopep8', 'black', 'isort', 'yapf', 'remove_trailing_lines',  'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
 
 nmap <silent> <F7> :ALELint<cr>
 " Disabling highlighting

@@ -103,3 +103,13 @@ augroup encrypted
   " after the file has been written.
   autocmd BufWritePost,FileWritePost *.asc,*.gpg,*.pgp u
 augroup END
+"
+""""""""""""""""""""""""""""""
+" => Java
+""""""""""""""""""""""""""""""
+
+" Code compile and running
+autocmd Filetype java set makeprg=javac\ %
+autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+autocmd Filetype java map <F5> :!time java -cp %:p:h %:t:r<CR>
+autocmd Filetype java map <F9> :make<Return>:copen<CR>>
