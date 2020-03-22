@@ -38,6 +38,9 @@ if has('gui_running')
     set lines=40
 endif
 
+noremap <F3> :set invnumber<CR>
+inoremap <F3> <C-O>:set invnumber<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,7 +113,8 @@ map <silent> <F12> :let &background = ( &background == "dark"? "light" : "dark" 
 
 " Set extra options when running in GUI mode
 if has('gui_running')
-    set guioptions-=T   " Disable the menubar
+    set guioptions-=T   " Disable the tool bar 
+    set guioptions-=m   " Disable the menubar
     set guioptions-=e
     set guioptions-=L   " Disable scrollbars
     set guioptions-=l   " Disable scrollbars

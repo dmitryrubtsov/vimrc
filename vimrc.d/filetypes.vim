@@ -16,7 +16,7 @@ au FileType python setlocal completeopt-=preview
 " python executables for different plugins
 let g:pymode_python='python3'
 let g:syntastic_python_python_exec='python3'
-" 
+ 
 " rope
 let g:pymode_rope=0
 let g:pymode_rope_completion=0
