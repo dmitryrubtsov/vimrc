@@ -62,6 +62,9 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' } " For text filtering and alignme
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
+" --> Django HTML templates
+Plug 'vim-scripts/django.vim'
+
 " --> Python
 Plug 'plytophogy/vim-virtualenv' " Plugin for working with python virtualenvs 
 Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' } " Python-mode. PyLint, Rope, Pydoc, breakpoints from box.
