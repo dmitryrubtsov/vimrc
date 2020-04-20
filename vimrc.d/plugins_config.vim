@@ -119,6 +119,7 @@ let g:tagbar_type_vim  = {
 " => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:virtualenv_stl_format = '| (%n) |'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -145,12 +146,17 @@ let b:ale_fixers = {
 \}
 
 nmap <silent> <F7> :ALELint<cr>
+map <silent> <leader>a <Plug>(ale_next_wrap)
+
 " Disabling highlighting
 let g:ale_set_highlights = 0
 
 " Only run linting when saving the file
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_flake8_options = '--ignore=E501'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-gitgutter (Git gutter)
@@ -293,7 +299,7 @@ let g:multi_cursor_select_all_word_key = '<A-s>'
 let g:multi_cursor_start_key           = 'g<C-s>'
 let g:multi_cursor_select_all_key      = 'g<A-s>'
 let g:multi_cursor_next_key            = '<C-s>'
-let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_prev_key            = '<C-a>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 

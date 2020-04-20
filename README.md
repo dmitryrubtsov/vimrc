@@ -32,6 +32,7 @@ K                       Show documentation for current word (selection) (for pyt
 <leader> sn             Spell ]s
 <leader> sp             Spell [s
 <c-l>                   Previous spelling error corrected
+<leader> a              ale next wrap
 ```
 ## Moving around, tabs, windows and buffers
 ```
@@ -66,3 +67,14 @@ K                       Show documentation for current word (selection) (for pyt
 <leader> nf             :NERDTreeFind
 <leader> nn             If a NERDTree already exists for this tab, it is reopened and rendered again.  If no NERDTree exists for this tab then this command acts the same as the |:NERDTree| command. (:NERDTreeToggle)
 ```
+## Multiple cursors
+'''
+<C-s>                   start word key      
+<A-s>                   select all word_key 
+g<C-s>                  start key           
+g<A-s>                  select all key      
+<C-s>                   next key            
+<C-a>                   prev key            
+<C-x>                   skip key            
+<Esc>                   quit key            
+'''
