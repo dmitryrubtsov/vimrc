@@ -38,6 +38,9 @@ if has('gui_running')
     set lines=40
 endif
 
+" Disable beep and flash
+set noeb vb t_vb=
+
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
 
