@@ -39,7 +39,7 @@ if has('gui_running')
 endif
 
 " Disable beep and flash
-set noeb vb t_vb=
+autocmd GUIEnter * set vb t_vb=
 
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
