@@ -108,6 +108,7 @@ set t_Co=256
 
 try
     colorscheme PaperColor
+    set background=light
 catch
 endtry
 
