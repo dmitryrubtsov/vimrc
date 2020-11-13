@@ -1,4 +1,18 @@
 # vimrc
+- [vimrc](#vimrc)
+- [Hotkeys](#hotkeys)
+  - [Editing mappings](#editing-mappings)
+    - [Move a line of text using ALT+[jk] or Command+[jk] on mac](#move-a-line-of-text-using-altjk-or-commandjk-on-mac)
+  - [Python](#python)
+  - [Search commands](#search-commands)
+  - [Spell](#spell)
+  - [Moving around, tabs, windows and buffers](#moving-around-tabs-windows-and-buffers)
+  - [Snippets](#snippets)
+  - [Other](#other)
+  - [Multiple cursors](#multiple-cursors)
+- [Requirements](#requirements)
+  - [Shougo / deoplete.nvim](#shougo--deopletenvim)
+  - [preservim / tagbar](#preservim--tagbar)
 # Hotkeys
 ```
 <F3>                    Display line numbers
@@ -78,3 +92,26 @@ g<A-s>                  select all key
 <C-x>                   skip key            
 <Esc>                   quit key            
 '''
+
+# Requirements
+##  Shougo / deoplete.nvim 
+- pynvim
+- msgpack
+
+**Ubuntu**
+```
+sudo apt-get install python3-pynvim python3-msgpack
+```
+
+**Pip**
+```
+pip3 install --user --upgrade pynvim msgpack
+```
+
+##  preservim / tagbar
+- Ctag
+
+**Ubuntu**
+```
+sudo apt-get install universal-ctags
+```  
